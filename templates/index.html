@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Study Manager</title>
+</head>
+<body>
+    <header class="header">
+        <h1>Study Manager</h1>
+        <button id="theme-toggle">Dark mode</button>
+    </header>
+
+    <main class="dashboard">
+        <section class="welcome">
+            <h2>Your learning space</h2>
+            <p>Keep track of your courses and celebrate your achievements.</p>
+        </section>
+
+        <section class="progress-section">
+            <h2>Your Progress</h2>
+
+            <div class="progress-cards">
+                <div class="progress-card">
+                    <h3>Total courses</h3>
+                    <p id="total-courses">{{ total_courses }}</p>
+                </div>
+
+                <div class="progress-card">
+                    <h3>Total topics</h3>
+                    <p id="total-topics">{{ total_topics }}</p>
+                </div>
+
+                <div class="progress-card">
+                    <h3>Completed</h3>
+                    <p id="completed-topics">{{ completed_topics }}</p>
+                </div>
+
+                <div class="progress-card">
+                    <h3>Progress</h3>
+                    <p id="progress">{{ progress }}%</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="courses-section">
+            <div class="section-heading">
+                <h2>My courses</h2>
+                <button id="add-course-button">+ Add course</button>
+            </div> 
+
+            <input type="text" 
+                id="course-search" 
+                placeholder="Search courses or topics..."
+            >
+
+            
+            <div id="course-list" class="course-list">
+                {% for course, topics in courses.items() %}
+                    <div class="course-card">
+                        <h3>{{ course }}</h3>
+
+                        <ul>
+                            {% for topic, completed in topics.items() %}
+                                <li>
+                                   
+                                    {% if completed %}
+                                        <span class="topic-icon completed" aria-label="Completed">✓</span>
+                                    {% else %}
+                                        <span class="topic-icon" aria-label="Not completed"></span>
+                                    {% endif %}
+
+                                    {{ topic }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% else %}
+                    <p>No courses yet. Add your first course to get started!</p>
+                {% endfor %}
+            </div>
+
+
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

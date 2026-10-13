@@ -1,0 +1,17 @@
+
+{
+    "Python": {
+        "Functions": true,
+        "File I/O": false,
+        "Regular Expressions": false
+    },
+    "Web Development": {
+        "HTML": true,
+        "CSS": true,
+        "JavaScript": false
+    },
+    "Mathematics": {
+        "Algebra": false,
+        "Calculus": false
+    }
+}
