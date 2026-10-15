@@ -10,17 +10,29 @@ study.load_data()
 @app.route("/")
 def home():
     courses = study.courses
+    course_progress = {}
 
     total_courses = len(courses)
     total_topics = 0 
     completed_topics = 0
 
-    for topics in courses.values():
+    for course, topics in courses.items():
         total_topics += len(topics)
+
+        course_completed = 0 
 
         for completed in topics.values():
             if completed:
                 completed_topics += 1
+                course_completed += 1
+
+        if len(topics) > 0:
+            course_progress[course] = round(
+                course_completed / len(topics) * 100
+            )
+
+        else:
+            course_progress[course] = 0
 
 
     if total_topics > 0:
@@ -35,5 +47,6 @@ def home():
         total_courses=total_courses,
         total_topics=total_topics,
         completed_topics=completed_topics,
-        progress=progress
-    )
+        progress=progress,
+        course_progress=course_progress
+)

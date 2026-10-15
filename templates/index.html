@@ -68,6 +68,18 @@
                     <div class="course-card">
                         <h3>{{ course }}</h3>
 
+                        <p class="course-progress-text">
+                            {{ topics.values() | select('true') | list | length}}
+                            / {{ topics | length }} topics completed
+                            ({{ course_progress[course] }}%)
+                        </p>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: {{ course_progress[course] }}%;">
+
+                            </div>
+                        </div>
+
                         <ul>
                             {% for topic, completed in topics.items() %}
                                 <li>
