@@ -54,7 +54,23 @@
         <section class="courses-section">
             <div class="section-heading">
                 <h2>My courses</h2>
-                <button id="add-course-button">+ Add course</button>
+                <form action="{{ url_for('add_course_web') }}" method="POST" class="add_course_form">
+                    <input 
+                    type ="text"
+                    name="course_name"
+                    placeholder="Course name (e.g Anatomy, Physics, etc.)"
+                    required
+                    >
+
+                    <input 
+                    type ="text"
+                    name="topic_name"
+                    placeholder="Topic name (e.g Cell Biology, Thermodynamics, etc.)"
+                    required
+                    >
+
+                    <button id="add-course-button">+ Add course</button>
+                </form>
             </div> 
 
             <input type="text" 
@@ -87,7 +103,11 @@
                                     {% if completed %}
                                         <span class="topic-icon completed" aria-label="Completed">✓</span>
                                     {% else %}
-                                        <span class="topic-icon" aria-label="Not completed"></span>
+                                       <form action="{{ url_for('completed_topic_web') }}" method="POST" class="completed-topic-form">
+                                            <input type="hidden" name="course_name" value="{{ course }}">
+                                            <input type="hidden" name="topic_name" value="{{ topic }}">
+                                            <button type="submit" class="topic-icon" aria-label="Mark {{ topic }} completed"></button>
+                                       </form>
                                     {% endif %}
 
                                     {{ topic }}

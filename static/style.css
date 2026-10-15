@@ -76,6 +76,22 @@ button:hover {
     margin-bottom: 20px;
     color: #44352b;
 }
+.section-heading form input {
+    height: 39px;
+    background: #faf5f3ec;
+    border: 1px solid #a8897586;
+    padding: 07px 12px 7px 12px;
+    border-radius: 10px;
+}
+
+.section-heading form input:focus {
+    outline: none;
+    border-color: #a77b52;
+    box-shadow: 0 0 0 3px #a77b521a;
+}
+.section-heading form input::placeholder {
+    color: #a39485;
+}
 
 .progress-cards {
     display: grid;
@@ -238,4 +254,22 @@ button:hover {
     background: #79553a;
     border-radius: 10px;
     transition: width .4s ease;
+}
+
+.completed-topic-form button.topic-icon {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    padding: 0;
+    border: 2px solid #bba58f;
+    border-radius: 50%;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    cursor: pointer;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
 }

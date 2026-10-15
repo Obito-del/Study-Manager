@@ -1,17 +1,22 @@
-
 {
     "Python": {
         "Functions": true,
-        "File I/O": false,
-        "Regular Expressions": false
+        "File I/O": true,
+        "Regular Expressions": true
     },
     "Web Development": {
         "HTML": true,
         "CSS": true,
-        "JavaScript": false
+        "JavaScript": true
     },
     "Mathematics": {
-        "Algebra": false,
+        "Algebra": true,
         "Calculus": false
+    },
+    "Biology": {
+        "Human Anatomy": false
+    },
+    "Cs50 Python": {
+        "Regular Expressions": true
     }
 }
