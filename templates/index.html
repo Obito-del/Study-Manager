@@ -38,10 +38,16 @@
                     <p id="completed-topics">{{ completed_topics }}</p>
                 </div>
 
-                <div class="progress-card">
-                    <h3>Progress</h3>
-                    <p id="progress">{{ progress }}%</p>
-                </div>
+                
+<div class="progress-card">
+    <h3>Progress</h3>
+    <p id="progress">{{ progress }}%</p>
+
+    <div class="progress-bar">
+        <div class="progress-fill" style="width: {{ progress }}%;"></div>
+    </div>
+</div>
+
             </div>
         </section>
 

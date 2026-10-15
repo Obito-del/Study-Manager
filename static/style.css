@@ -221,3 +221,21 @@ button:hover {
     border-color: #8a6849;
     font-weight: bold;
 }
+
+
+/* progres bar */
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #e8dac7;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #79553a;
+    border-radius: 10px;
+    transition: width .4s ease;
+}
